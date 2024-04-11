@@ -1,0 +1,27 @@
+<div class="card">
+    <div class="card-header">
+        <div class="h5">Rendelés Véglegesítése</div>
+    </div>
+    <div class="card-body">
+        <div class="form-floating mb-3">
+            <input [(ngModel)]="nev" type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <label for="floatingInput">Név</label>
+          </div>
+          <div class="form-floating">
+            <input [(ngModel)]="cim" type="text" class="form-control" id="floatingPassword" placeholder="Password">
+            <label for="floatingPassword">Cim</label>
+          </div>
+          <ul *ngIf="kosar && noveny" class="list-group list-group-flush">
+            <li *ngFor="let tetel of kosar"  class="list-group-item mb-3">
+                <div class="row">
+            <div class="col">{{getNovenyNev(tetel.key)}}</div>
+            <div class="col">{{tetel.db}}</div>
+            <div class="col">{{tetel.ar}}</div>
+            <div class="col"><button (click)="tetelTorol(tetel.key)" class="btn btn-primary">Töröl</button></div>
+            </div>
+        </li>
+        <p>Összesen: {{osszes}}Ft </p>
+        <p><button (click)="megRednel()" class="btn btn-primary">Megrendel</button></p>
+    </ul>
+</div>
+</div>

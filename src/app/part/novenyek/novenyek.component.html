@@ -1,0 +1,21 @@
+<input  type="text">
+<div class="row">
+<div *ngFor="let noveny of novenyek" class="col col-md-3">
+    <div class="card h-100">
+      <img [src]="noveny.kepUrl" class="card-img-top" alt="...">
+      <div class="card-body">
+            <h5 class="card-title">{{noveny.megnevezes}}</h5>
+        <p class="card-text">{{noveny.leiras}}</p>
+      </div>
+      <div class="card-footer">
+        <p>{{noveny.ar}}</p>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">DB</span>
+            </div>
+            <input #db type="number" min="0" value="1" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+            <button (click)="addTetel(noveny,db.value)" class="btn btn-primary">Megrendel</button>
+        </div>
+      </div>
+    </div>
+</div>
